@@ -10,3 +10,9 @@ app.use(express.static('public'));
 app.listen(PORT,() => {
     console.log(`Server listeneing on ${PORT}`);
 });
+
+//GET random quote
+app.get('/api/quotes/random', (req, res) => {
+    const randomQuote = getRandomElement(quotes);
+    res.send({ quote: randomQuote });
+  });
